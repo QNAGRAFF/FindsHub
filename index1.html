@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Finds Hub Code!</title>
+	<style>
+		body {
+			background-color: rgb(103, 103, 103);
+			animation: glow 2s ease-in-out infinite alternate;
+			--fade-color: #8c179c;
+			transition: background-color 2s ease-in-out;
+		}
+		
+		@keyframes glow {
+			0% {
+				background-color: var(--fade-color);
+			}
+			100% {
+				background-color: #000000;
+			}
+		}
+	</style>
+</head>
+<body>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+
+		button {
+			font-size: 1.2em;
+			padding: 10px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			cursor: pointer;
+		}
+
+		table {
+			margin: auto;
+			margin-top: 50px;
+			border-collapse: collapse;
+		}
+
+		td {
+			padding: 10px;
+			border: 1px solid #ddd;
+		}
+
+		#generated-code {
+			font-family: monospace;
+			color: white;
+			font-size: 1.2em;
+			margin-top: 50px;
+			display: none;
+		}
+
+		#copy-button {
+			font-size: 1em;
+			padding: 5px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			cursor: pointer;
+			margin-top: 10px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="generateCode()">Generate Code</button>
+	<table id="code-table" style="display: none;">
+		<tr>
+			<td>ABC123</td>
+			<td>DEF456</td>
+			<td>GHI789</td>
+		</tr>
+		<tr>
+			<td>JKL012</td>
+			<td>MNO345</td>
+			<td>PQR678</td>
+		</tr>
+		<tr>
+			<td>STU901</td>
+			<td>VWX234</td>
+			<td>YZA567</td>
+		</tr>
+	</table>
+	<div id="generated-code"></div>
+	<center><button id="copy-button" onclick="copyCode()">Copy!</button></center>
+
+	<script>
+		var codes = [
+			"UYS721",
+			"DEF456",
+			"GHI789",
+			"JKL012",
+			"MNO345",
+			"PQR678",
+			"STU901",
+			"VWX234",
+			"YZA567"
+		];
+
+		function generateCode() {
+			var randomIndex = Math.floor(Math.random() * codes.length);
+			var code = codes[randomIndex];
+			document.querySelector("#generated-code").textContent = code;
+			document.querySelector("#copy-button").textContent = "Copy!";
+			document.querySelector("#generated-code").style.display = "block";
+			document.querySelector("#code-table").style.display = "none";
+			document.querySelector("#copy-button").style.display = "block";
+		}
+
+		function copyCode() {
+			var codeElement = document.querySelector("#generated-code");
+			var code = codeElement.textContent;
+			var tempInput = document.createElement("input");
+			tempInput.value = code;
+			document.body.appendChild(tempInput);
+			tempInput.select();
+			document.execCommand("copy");
+			document.body.removeChild(tempInput);
+			document.querySelector("#copy-button").textContent = "Copied!";
+			setTimeout(function() {
+				document.querySelector("#copy-button").textContent = "Copy!";
+			}, 3000);
+		}
+	</script>
+</body>
+</html>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+	body {
+	  font-family: 'Montserrat', sans-serif;
+	}
+	.white-text {
+	  color: #fff;
+	}
+</style>
+
+<p class="white-text">Want to get Finds Hub? Click below!</p>
+
+<a onclick="downloadFile()" href="#">
+  <button style="background-color: #8a2be2; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer;">
+    Download Finds Hub
+  </button>
+</a>
+
+<p class="white-text">When the file is finished downloading, copy the code and put it in your executer enjoy!</p>
+
+<script>
+  function downloadFile() {
+    // Text content to be downloaded
+    var text = `
+   nothing to see here yet!
+    `;
+    
+    // Create a new blob with the text content
+    var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+    
+    // Create a temporary anchor element
+    var anchor = document.createElement("a");
+    anchor.download = "FindsHub.txt";
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.target = "_blank";
+    
+    // Trigger the download
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  }
+</script>
